@@ -1,24 +1,26 @@
-# README
+# test app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Quick test app for form submit buttons
 
-Things you may want to cover:
+```rb
+f.submit disabled: true
+```
 
-* Ruby version
+```js
+  $(".field").on('keyup', function(){
+    $("input[type='submit']").removeAttr("disabled");
+  });
+```
 
-* System dependencies
+https://api.jquery.com/keyup/
+https://api.jquery.com/attribute-equals-selector/
 
-* Configuration
+#### questions
 
-* Database creation
+```rb
+f.submit disabled: @metric.new_record?
+f.submit disabled: @metric.persisted?
+f.submit disabled: @metric.destroyed?
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://github.com/kangkyu/my_test_app/blob/master/app/views/metrics/_form.html.erb#L25
