@@ -1,0 +1,34 @@
+<%= form_for(metric) do |f| %>
+  <% if metric.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(metric.errors.count, "error") %> prohibited this metric from being saved:</h2>
+
+      <ul>
+      <% metric.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :view_count %>
+    <%= f.number_field :view_count %>
+  </div>
+
+  <div class="field">
+    <%= f.label :share_count %>
+    <%= f.number_field :share_count %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit disabled: true %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  
+  $(".field").on('keyup', function(){
+    $("input[type='submit']").removeAttr("disabled");
+  });
+</script>
